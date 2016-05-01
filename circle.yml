@@ -1,0 +1,9 @@
+dependencies:
+  pre:
+    - sudo apt-get -y install cmake libopencv-dev libboost-test-dev
+test:
+  pre:
+    - cmake .
+    - make
+  override:
+    - make test
