@@ -2,7 +2,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "detect.h"
+#include "edges.h"
 
 using namespace cv;
 using namespace std;
@@ -11,11 +11,36 @@ using namespace std;
 int main( int argc, char** argv )
 {
     Mat img = imread(argv[1]);
+    Mat edges_results = cv_edges(img);
 
-    Mat results = detect(img);
+    Mat op = Mat(3,3,CV_8SC1);
+    op.data[0] = -1;
+    op.data[1] = 0;
+    op.data[2] = 1;
     
-    imshow("lines", results);
+    op.data[3] = -2;
+    op.data[4] = 0;
+    op.data[5] = 2;
+
+    op.data[6] = -1;
+    op.data[7] = 0;
+    op.data[8] = 1;
+
+    Mat sobel_results = cv_sobel(op, img);
+    
+    imshow("results", edges_results);
     waitKey();
 
+	imshow("results", sobel_results);
+    waitKey();
+    
+    cv::Mat src_gray, grad_x;
+    cv::cvtColor(img, src_gray, CV_BGR2GRAY);
+    cv::Sobel( src_gray, grad_x, CV_32F, 1, 0, 3);
+    convertScaleAbs( grad_x, grad_x );
+
+    imshow("results", grad_x);
+    waitKey();
+    
     return 0;
 }
