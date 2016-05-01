@@ -6,10 +6,6 @@
 
 #include "detect.h"
 
-BOOST_AUTO_TEST_CASE(FailTest)
-{
-    BOOST_CHECK_EQUAL(5, 2*2);
-}
 
 BOOST_AUTO_TEST_CASE(PassTest)
 {
