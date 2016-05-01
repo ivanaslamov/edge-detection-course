@@ -1,12 +1,9 @@
-cmake_minimum_required( VERSION 2.8 )
+cmake_minimum_required( VERSION 3.2.2 )
 
 project( line_detection )
 
-find_package( OpenCV REQUIRED )
+add_subdirectory (src) 
+add_subdirectory (test) 
 
-include_directories( include )
-
-add_library( detect SHARED src/detect.cpp )
-add_executable( main src/main.cpp )
-
-target_link_libraries( main detect ${OpenCV_LIBS} )
+enable_testing ()
+add_test (NAME EdgeDetectionTest COMMAND test_detection)
