@@ -1,13 +1,9 @@
-machine:
-  python:
-    version: 2.7.3
 dependencies:
   pre:
     - sudo apt-get install cmake libopencv-dev libboost-test-dev
 test:
   pre:
-    - cd build
-    - cmake ..
+    - cmake .
     - make
   override:
     - make test
