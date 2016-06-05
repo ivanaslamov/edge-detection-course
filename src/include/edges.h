@@ -6,3 +6,13 @@
 cv::Mat cv_edges(cv::Mat src);
 
 cv::Mat cv_sobel(cv::Mat op, cv::Mat src);
+
+cv::Mat cv_gaussian(int n);
+
+cv::Mat cv_gaussian_second_derivative(int n);
+
+cv::Mat cv_convolve(cv::Mat M, cv::Mat N);
+
+cv::Mat cv_zero_crossings(cv::Mat image_f);
+
+cv::Mat cv_filter_edges(cv::Mat upper_scale_edges, cv::Mat lower_scale_edges);
