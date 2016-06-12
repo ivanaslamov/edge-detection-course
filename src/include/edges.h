@@ -15,4 +15,4 @@ cv::Mat cv_convolve(cv::Mat M, cv::Mat N);
 
 cv::Mat cv_zero_crossings(cv::Mat image_f);
 
-cv::Mat cv_filter_edges(cv::Mat upper_scale_edges, cv::Mat lower_scale_edges);
+cv::Mat cv_anisotropic_blurring(cv::Mat constraint, cv::Mat temperature);
