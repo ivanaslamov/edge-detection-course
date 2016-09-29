@@ -7,3 +7,4 @@ add_subdirectory (test)
 
 enable_testing ()
 add_test (NAME FlipTest COMMAND test_detection)
+add_test (NAME FlipTestAll COMMAND test_detection)
